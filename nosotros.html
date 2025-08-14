@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nosotros - Rapid Flex</title>
+  <!-- <link rel="stylesheet" href="estilosnosotros.css"/>-->
+ <!-- <link href="responoveglobal.css" rel="stylesheet" />-->
+  <!--<link rel="icon" href="logo.png" type="image/png">-->
+  <link rel="icon" type="image/png" href="./logo.png?v=1">
+  <link href="mobile-tablet-servicio.css" rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<!--<script src="excel-to-css.js"></script>-->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    cargarCSSDesdeExcel('datos_nosotros.xlsx');
+  });
+</script>
+</head>
+<body>
+  <section class="nosotros-seccion">
+    <!-- Título principal de la sección. Se deja vacío para que el contenido se cargue desde el Excel -->
+    <h2 class="titulo-nosotros" id="titulo_nosotros"></h2>
+    <div class="contenedor-nosotros">
+      <div class="texto-nosotros">
+        <!-- Párrafos de la sección "¿Quiénes somos?". Se dejan vacíos y se rellenan dinámicamente desde el archivo Excel -->
+        <p id="texto_p1"></p>
+        <p id="texto_p2"></p>
+        <p id="texto_p3"></p>
+        <p id="texto_p4"></p>
+        <p id="texto_p5"></p>
+        <p id="texto_p6"></p>
+      </div>
+      <div class="imagen-nosotros">
+        <!-- Imagen estática de la sección. Esta imagen no se gestiona desde el Excel -->
+        <img src="32.png" alt="Equipo Rapid Flex">
+      </div>
+    </div>
+
+    <div class="barra-decorativa"></div>
+    <section class="nuestra-historia">
+      <div class="contenedor-historia">
+        <!-- Título e historia se rellenan desde el Excel -->
+        <h2 id="historia_titulo"></h2>
+        <p id="historia_contenido"></p>
+      </div>
+    </section>
+    
+
+    <section class="nuestros-valores">
+      <div class="contenedor-valores">
+        <!-- Título de la sección de valores -->
+        <h2 id="valores_titulo"></h2>
+        <!-- Cada valor tiene su nombre y descripción separados para poder gestionarlos desde el Excel -->
+        <p><strong class="verde" id="valor1_nombre"></strong> <span id="valor1_desc"></span></p>
+        <p><strong class="verde" id="valor2_nombre"></strong> <span id="valor2_desc"></span></p>
+        <p><strong class="verde" id="valor3_nombre"></strong> <span id="valor3_desc"></span></p>
+        <p><strong class="verde" id="valor4_nombre"></strong> <span id="valor4_desc"></span></p>
+      </div>
+    </section>
+    <!-- MISIÓN -->
+<section class="bloque-individual mision">
+  <div class="contenido-bloque">
+    <img src="25.png" alt="Icono Misión" class="icono-mision">
+    <!-- Título y descripción de la misión -->
+    <h2 id="mision_titulo"></h2>
+    <p id="mision_desc"></p>
+  </div>
+</section>
+
+<!-- VISIÓN -->
+<section class="bloque-individual vision">
+  <div class="contenido-bloque">
+    <!-- Título y descripción de la visión -->
+    <h2 id="vision_titulo"></h2>
+    <p id="vision_desc"></p>
+  </div>
+</section>
+
+
+<!-- Imagen centrada debajo de VISIÓN -->
+<div class="imagen-banner">
+  <img src="40.png" alt="Banner RapidFlex">
+</div>
+
+    
+    <!-- Carga la biblioteca SheetJS desde CDN y el script que lee el Excel. Colocar al final para que el DOM esté listo -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="clienteNosotros.js"></script>
+   
+</body>
+</html>

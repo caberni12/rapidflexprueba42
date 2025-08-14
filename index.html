@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RapidFlex - Entregas de Última Milla</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+
+  <!-- SheetJS + loader desde Excel -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.19.3/dist/xlsx.full.min.js"></script>
+  <script src="excel-config.js"></script>
+
+
+
+  <!-- Estilos base -->
+<link href="estilos.css" rel="stylesheet" />
+  
+  <link href="mobile-tablet-servicio.css" rel="stylesheet" />
+
+  <!-- Favicon por defecto (Excel puede sobreescribirlo con setFavicon) -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Tema del index controlado por variables (sobrescritas por THEME en Excel) -->
+  <style>
+
+    /* El header de index no muestra banner, los banners viven en las vistas */
+    #site-header { background-image: none !important; height:auto !important; min-height:0 !important; }
+
+    /* Loader de transiciones */
+    #route-loader {
+      display:none;
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      top: var(--topbar-height);
+      background: var(--loader-backdrop);
+      z-index: 2147483647;
+      opacity: 1;
+      pointer-events: all;
+      transition: opacity .2s ease;
+    }
+    #route-loader.rf-hide { opacity: 0; pointer-events: none; }
+    #route-loader.rf-hidden { display: none !important; }
+    #route-loader::after {
+      content: "";
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 4px solid var(--spinner-border);
+      border-top-color: transparent;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      animation: rfspin .9s linear infinite;
+    }
+    @keyframes rfspin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+    /* Topbar */
+    #topbar{
+      position: fixed; top: 0; left: 0; right: 0;
+      min-height: var(--topbar-height);
+      padding: var(--topbar-pad-y) 15px;
+      background: var(--topbar-bg);
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--topbar-border);
+      z-index: 10000; box-sizing: border-box; zoom: var(--nav-zoom);
+    }
+    #topbar .nav-logo img { height: 50px; width: auto; margin-top: 0; }
+    #topbar .nav-links { display:flex; align-items:center; gap:16px; }
+    #topbar .nav-links a.btn-cotiza {
+      height: 40px; display:inline-flex; align-items:center; justify-content:center;
+      padding: 0 20px; border-radius: 9999px; font-weight:700; font-size:20px;
+    }
+
+    /* Área de vistas */
+    #app{ padding-top: var(--topbar-height,-30px); }
+    #app header{ height: 500px !important; margin-top: calc(0 * var(--topbar-pad-y, 15px)) !important; padding-top: 0!important; }
+    #app .hero-text{ top: 120px; }
+  </style>
+</head>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const anchoPantalla = window.innerWidth;
+
+    if (anchoPantalla > 1024) {
+      // Si es mayor a 1024 píxeles, ir a #/menu
+      if (!window.location.href.includes("#/menu")) {
+        window.location.href = "https://caberni12.github.io/rapidflexprueba40/#/menu";
+      }
+    } else {
+      // Si es igual o menor a 1024 píxeles, ir a #/servicio
+      if (!window.location.href.includes("#/servicio")) {
+        window.location.href = "https://caberni12.github.io/rapidflexprueba40/#/servicio";
+      }
+    }
+  });
+</script>
+
+
+<body>
+  <!-- Topbar global y fijo -->
+  <header id="site-header">
+    <nav id="topbar">
+      <div class="nav-logo">
+        <a href="#/menu" aria-label="Ir a inicio">
+          <img src="logo.png" alt="Logo" />
+        </a>
+      </div>
+      <div class="nav-links">
+        <!-- Botón que aparece SOLO fuera del menú -->
+        <a id="btnBackMenu" href="#/menu" class="btn-cotiza"></a>
+        <a id="nav_nosotros" href="#/nosotros" class="btn-cotiza" data-view="nosotros"></a>
+        <a id="nav_servicio" href="#/servicio" class="btn-cotiza" data-view="servicio"></a>
+        <a id="nav_despachar" href="javascript:void(0)" class="btn-cotiza" onclick="openModal('modalEmpresa')"></a>
+        <a id="nav_repartidor" href="javascript:void(0)" class="btn-cotiza" onclick="openModal('modalRepartidor')"></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contenedor SPA -->
+  <div id="route-loader" aria-hidden="true"></div>
+  <div id="app" role="main" aria-live="polite"></div>
+
+  <!-- Modales globales -->
+  <div id="modalEmpresa" class="modal" style="display:none">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modalEmpresa')">&times;</span>
+      <h2 id="modal_empresa_titulo"></h2>
+      <form id="empresaForm">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="telefono" placeholder="Teléfono" required>
+        <textarea name="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+        <input type="hidden" name="status" value="Nuevo">
+        <button type="submit" id="modal_empresa_boton"></button>
+        <div class="loader" id="loaderEmpresa"></div>
+      </form>
+    </div>
+  </div>
+
+  <div id="modalRepartidor" class="modal" style="display:none">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modalRepartidor')">&times;</span>
+      <h2 id="modal_repartidor_titulo"></h2>
+      <form id="repartidorForm">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="telefono" placeholder="Teléfono" required>
+        <textarea name="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+        <input type="hidden" name="status" value="Nuevo">
+        <button type="submit" id="modal_repartidor_boton"></button>
+        <div class="loader" id="loaderRepartidor"></div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <!-- Botón flotante WhatsApp -->
+    <a href="https://wa.me/56949399570?text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="whatsapp-float" title="Escríbenos por WhatsApp" rel="noopener">
+      <img src="Whatsapapp.png" alt="WhatsApp" />
+    </a>
+
+    <div class="redes-sociales">
+      <a href="https://www.instagram.com/rapidflex.flex/" target="_blank"><img src="instagram.png" alt="Instagram" /></a>
+      <a href="https://www.tiktok.com/@rapid.flex" target="_blank"><img src="tiktok.png" alt="TikTok" /></a>
+      <a href="https://www.facebook.com/profile.php?id=61577021292544" target="_blank"><img src="facebook.png" alt="Facebook" /></a>
+    </div>
+    <p id="footer_copy"></p>
+   
+  </footer>
+
+  <!-- Scripts base -->
+  <script src="rapiflexd-hero.js"></script>
+  <script src="rapiflexd-script.js"></script>
+  <script src="spa-router.js"></script>
+
+  <!-- Config carrusel por defecto (si Excel no carga) -->
+  <script>
+    window.HERO_IMAGES = ['banner.png','logo-tienda.png','logo-circulos.png'];
+    const _ocultar = new Set(['logo-tienda.png','logo-circulos.png']);
+    window.HERO_CAPTIONS = window.HERO_IMAGES.map(n => _ocultar.has(n) ? null : undefined);
+    window.HERO_AUTOPLAY_MS = 5000;
+  </script>
+
+  <!-- Arranque único: Excel -> aplica THEME/COLORS/HERO/VIEWS -> inicia router -->
+  <script>
+    (async () => {
+      if (!location.hash) location.hash = '#/menu';
+      try {
+        const cfg = await ExcelConfig.load('config_spa.xlsx');
+        ExcelConfig.applyToSPA(cfg);
+      } catch(e) {
+        console.warn('No se pudo cargar config_spa.xlsx, usando defaults.', e);
+      }
+      SPARouter.init();
+    })();
+  </script>
+
+  <!-- Cargadores de contenido (si tu lógica lo requiere) -->
+  <script src="clienteIndex.js"></script>
+  <script src="clienteNosotros.js"></script>
+  <script src="clienteServicio.js"></script>
+  <script src="guardar-despachar.js"></script>
+
+  <script src="clienteMenu.js"></script>
+
+  <script src="correo.js"></script>
+  <script src="mobile-redirect.js"></script>
+  <script src="mobile-redirect.servicio.js"></script>
+</body>
+</html>

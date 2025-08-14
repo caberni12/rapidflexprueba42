@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* =========================
+   BASE & TIPOGRAFÍA
+========================= */
+:root{
+  --topbar-height: 35px;
+  --topbar-pad-y: 10px;
+  --topbar-total: calc(var(--topbar-height) + (var(--topbar-pad-y) * 2));
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  background-color: #ffffff;
+  color: #111;
+  zoom: 100%;
+}
+
+h1, h2, h3, h4{
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.2;
+  margin: 0 0 3px;
+  
+}
+h3{ color: #000; text-align: center; }
+
+/* =========================
+   LAYOUTS GENERALES
+========================= */
+.seccion,
+.doble-columna,
+.bloques,
+.servicios,
+.empezar{
+  padding: 50px 5%;
+}
+
+.seccion{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.seccion .texto{ flex: 1 1 300px; }
+
+.doble-columna{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 45px;
+}
+
+.columna{ flex: 1 1 200px; }
+
+.bloques{
+  background: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 70px;
+}
+
+/* ===== TARJETAS ===== */
+.servicios{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+
+  /* menos separación con la sección siguiente */
+  padding-bottom: 8px;
+  margin-bottom: 0;
+}
+
+.tarjeta{
+  background: #f1f1f1;
+  border-radius: 12px;
+  max-width: 400px;
+  flex: 1 1 250px;
+  
+
+  /* contenido pegado arriba */
+  padding: 10 20px 10px;
+  margin-top: 100px;
+}
+
+/* primer elemento sin salto arriba */
+.tarjeta > :first-child{
+  margin-top: 0 !important;
+  padding-top: 30px !important;
+}
+
+/* =========================
+   SECCIÓN “EMPEZAR”
+========================= */
+.empezar{
+  background-color: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+
+  /* acercar a .servicios */
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+/* si viene justo después, aún más compacto */
+.servicios + .empezar{ margin-top: -6px; }
+
+.empezar-seccion{
+  background: transparent;
+  color: #111;
+  padding: 40px 20px;
+  margin-top: 0;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.empezar-contenedor{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.empezar-texto{ max-width: 400px; text-align: center; }
+.empezar-texto h2{ font-size: 28px; margin-top:  -20px; }
+.empezar-texto p { font-size: 18px; margin-bottom: -100px; }
+
+.btn-empezar{
+  background-color: #19fcc3a4;
+  color: #007BFF;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.btn-empezar:hover{ background-color: transparent; }
+
+.btn-empezarr2{
+  background-color: #00d1b2;
+  color: #007BFF;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-top: 0 !important;
+}
+.btn-empezarr2:hover{ background-color: #f0f0f0; }
+
+/* imagen sin rellenos extra arriba */
+.empezar-imagen img{
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 0 !important;
+  display: block;
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+.formulario{
+  background: #ffffff;
+  
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  
+}
+
+.formulario-seccion{
+  background: #c7f3f1;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 0px;
+  
+  text-align: center;
+}
+
+
+
+.formulario-seccion input,
+.formulario-seccion textarea{
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.formulario-seccion button{
+  background-color: #00d1b2;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+ 
+}
+.formulario-seccion button:hover{ background-color: #00b7a0; }
+
+/* loader */
+.loader{
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #000;
+  border-radius: 50%;
+  width: 30px; height: 30px;
+  margin: 10px auto 0;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin{ to{ transform: rotate(360deg); } }
+
+/* =========================
+   ÍCONOS
+========================= */
+.icono-servicio{
+  display: inline-block;
+  width: 40px; height: 40px;
+  margin-right: 8px;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Íconos personalizados */
+.icono-box   { background-image: url('29.png'); }
+.icono-camion{ background-image: url('23.png'); }
+.icono-reloj { background-image: url('23.png'); }
+.icono-fuego { background-image: url('24.png'); }
+.icono-zona  { background-image: url('28.png'); }
+.icono-tienda{ background-image: url('26.png'); }
+.icono-ventas{ background-image: url('27.png'); }
+
+/* =========================
+   DETALLES
+========================= */
+.centrado{ text-align: center; }
+
+.titulo-servicio{
+  color: #00d1b2;
+  text-align: center;
+  margin-top: 130px;
+  margin: 15px;
+}
+
+.barra-decorativa{
+  width: 100%;
+  height: 20px;
+  background-color: #00d1b2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  box-sizing: border-box;
+  margin: 50px 0 16px 5px;
+}
+
+/* =========================
+   IMÁGENES / IFRAMES FLUIDOS
+========================= */
+img, iframe{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RapidFlex - Entregas de Última Milla</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!--<link href="estilos2.css" rel="stylesheet" />-->
+  <link href="mobile-tablet-servicio.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="./logo.png?v=1">
+  <style id="tail-trim-style">/* html, body { overflow-x: hidden; }*/</style>
+</head>
+<body>
+  <header>
+    <div class="hero-text">
+      <h1 id="hero_titulo"></h1>
+      <p id="hero_subtitulo"></p>
+      <a href="javascript:void(0)" class="btn-cotiza" onclick="openModal('modalEmpresa')" id="hero_boton"></a>
+    </div>
+    <button class="hero-arrow hero-arrow-left" aria-label="Imagen anterior" type="button">‹</button>
+    <button class="hero-arrow hero-arrow-right" aria-label="Imagen siguiente" type="button">›</button>
+  </header>
+<center>
+  <section class="servicios">
+    <div class="servicio3">
+      <img src="tiempo.png" alt="Entrega Flex" />
+      <h2 id="flex_titulo"></h2>
+      
+      <p id="flex_desc"></p>
+    </div>
+    <div class="servicio1">
+      <img src="rayo.png" alt="Entrega Turbo" />
+      <h2 id="turbo_titulo"></h2>
+      
+      <p id="turbo_desc"></p>
+    </div>
+    <div class="servicio">
+      <img src="local.png" alt="Retiro en tienda" />
+
+      <h2 id="negocio_titulo"></h2>
+     
+      <p id="negocio_desc"></p>
+    </div>
+  </section>
+</center>
+  <section class="secciones-comunas">
+    <div class="contenidos-comunas">
+      <h2 style="margin-left: -15px;margin-top: 100px;" id="donde_titulo"></h2>
+      <div>
+        <h2 style="color: #333; font-weight: bold; font-size: 1.1rem; margin-left: 7px;margin-top:3px ;" id="rm_titulo"></h2>
+        <h2 style="color: #333; font-weight: bold; font-size: 1.4rem; margin-left: -160px;" id="rm_subtitulo"></h2>
+      </div>
+    </div>
+    <div class="imagen-comunas">
+      <img src="comunas.png" alt="Teléfono">
+    </div>
+  </section>
+
+  <section class="seccion-telefono">
+    <div class="contenido-telefono">
+      <h2 id="seg_titulo"></h2>
+      <div>
+        <p id="seg_desc"></p>
+      </div>
+      <div class="item-con-icono">
+        <img class="icono" src="localizacion.png" alt="Localizacion">
+        <p id="seg_item1"></p>
+      </div>
+      <div class="item-con-icono">
+        <img class="icono" src="etapas.png" alt="Etapas">
+        <p id="seg_item2"></p>
+      </div>
+      <div class="item-con-icono">
+        <img class="icono" src="integracion.png" alt="Integración">
+        <p id="seg_item3"></p>
+      </div>
+    </div>
+    <div class="imagen-telefono">
+      <img src="telefono-mapa.png" alt="Teléfono">
+    </div>
+  </section>
+
+  <div class="imagen-ubicacion">
+    <img src="sombraderecorrido.png" alt="sombraderecorrido">
+  </div>
+
+  <section class="seccion-marketplaces2">
+    <div class="fila-inline">
+      <h2 class="col-titulo" id="vehiculos_linea1_titulo"></h2>
+      <p class="col-texto" id="vehiculos_linea1_texto"></p><br>
+    </div>
+    <div class="fila-inline">
+      <h2 class="col-titulo" id="vehiculos_linea2_titulo"></h2>
+      <p class="col-texto" id="vehiculos_linea2_texto"></p><br>
+    </div>
+  </section>
+  
+  <section class="seccion-seguridad">
+    <div class="contenido-seguridad">
+      <h2 id="seguridad_titulo"></h2>
+      <div>
+        <p id="seguridad_desc"></p>
+      </div>
+      <div class="item-con-icono">
+        <img class="icono" src="peso.png" alt="Reembolso asegurado">
+        <p id="seguridad_item1"></p>
+      </div>
+      <div class="item-con-icono">
+        <img class="icono" src="humano.png" alt="Atención humana">
+        <p id="seguridad_item2"></p>
+      </div>
+    </div>
+    <div class="imagen-cajas">
+      <img src="cajas-seguras.png" alt="Cajas protegidas" />
+    </div>
+  </section>
+   
+  <section class="seccion-marketplaces3"></section>
+
+  <section class="seccion-marketplaces">
+    <h2 id="marketplaces_titulo"></h2>
+    <h3 id="marketplaces_subtitulo"></h3>
+    <p id="marketplaces_desc"></p>
+  </section>
+  
+  <section class="seccion-integraciones">
+    
+    <div class="integraciones-container2">
+      <button class="integracion-btn"><img src="mercadolibre.png" alt="Mercado Libre"></button>
+      <button class="integracion-btn"><img src="shopify.png" alt="Shopify"></button>
+      <button class="integracion-btn"><img src="walmart.png" alt="Walmart"></button>
+    </div>
+      
+    <div class="integraciones-container">
+      <button class="integracion-btn"><img src="ripley.png" alt="Ripley"></button>
+      <button class="integracion-btn"><img src="falabella.png" alt="Falabella"></button>
+      <button class="integracion-btn"><img src="jumpseller.png" alt="Jumpseller"></button>
+      <button class="integracion-btn"><img src="paris.png" alt="Paris"></button>
+    </div>
+  </section>
+  
+  <section class="seccion-contacto" id="contacto">
+    <div class="col-izq">
+      <h3 class="titulo-cols" id="contacto_sucursales_titulo"></h3>
+      <div class="sep-fino"></div>
+
+      <div class="ciudad" id="contacto_ciudad1"></div>
+      <div class="dato" id="contacto_direccion1"></div>
+      <div class="dato" id="contacto_comuna1"></div>
+
+      <h3 class="titulo-cols mt-32" id="contacto_titulo"></h3>
+      <div class="sep-fino"></div>
+
+      <p class="ayuda" id="contacto_ayuda"></p>
+      <!-- Cargadores de contenido (si tu lógica lo requiere)
+
+    <a class="pill-link" href="mailto:rapid@rapidflex.cl">
+        <span id="contacto_correo_texto"></span>
+      </a>
+      Cargadores de contenido (si tu lógica lo requiere) -->
+
+      <a class="pill-link"
+   href="mailto:rapid@rapidflex.cl"
+   data-subject="Consulta RapidFlex"
+   data-body="Hola, me interesa cotizar sus servicios.">
+  <span id="contacto_correo_texto"></span>
+</a>
+
+      <a class="pill-link" href="https://wa.me/56949399570" target="_blank" rel="noopener">
+        <span id="contacto_whatsapp_texto"></span>
+      </a>
+      <a class="btn-verde mt-20"
+         href="https://wa.me/56949399570?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+         target="_blank" rel="noopener" id="contacto_boton"></a>
+    </div>
+
+    <div class="col-der">
+      <div class="mapa-wrap">
+        <iframe
+          class="mapa"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.502147765502!2d-70.6846239!3d-33.4210893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5003d01dbd3%3A0x74b022936985d01b!2sRapid%20Flex!5e0!3m2!1es-419!2scl!4v1722879973026!5m2!1es-419!2scl"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <div id="modalEmpresa" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modalEmpresa')">&times;</span>
+      <h2 id="modal_empresa_titulo"></h2>
+      <form id="empresaForm">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="telefono" placeholder="Teléfono" required>
+        <textarea name="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+        <input type="hidden" name="status" value="Nuevo">
+        <button type="submit" id="modal_empresa_boton"></button>
+        <div class="loader" id="loaderEmpresa"></div>
+      </form>
+    </div>
+  </div>
+
+  <div id="modalRepartidor" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modalRepartidor')">&times;</span>
+      <h2 id="modal_repartidor_titulo"></h2>
+      <form id="repartidorForm">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="telefono" placeholder="Teléfono" required>
+        <textarea name="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+        <input type="hidden" name="status" value="Nuevo">
+        <button type="submit" id="modal_repartidor_boton"></button>
+        <div class="loader" id="loaderRepartidor"></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="clienteMenu.js"></script>
+  <script src="correo.js"></script>
+</body>
+</html>

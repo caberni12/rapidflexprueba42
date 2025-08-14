@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios - Rapid Flex</title>
+  <link href="mobile-tablet-servicio.css" rel="stylesheet" />
+  <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
+
+  <h2 class="titulo-servicio" id="servicio_titulo"></h2>
+  <section class="servicios">
+    <div class="tarjeta">
+      <h3 id="tarjeta1_titulo"></h3>
+      <p class="centrado"><span class="icono-servicio icono-box"></span><span id="tarjeta1_item1"></span></p>
+      <p class="centrado"><span></span><span id="tarjeta1_item2"></span></p>
+      <p class="centrado"><span></span><span id="tarjeta1_item3"></span></p>
+      <p class="centrado"><span></span><span id="tarjeta1_item4"></span></p>
+      <p class="centrado"><span class="icono-servicio icono-reloj"></span><span id="tarjeta1_item5"></span></p>
+      <p class="centrado"><span class="icono-servicio icono-reloj"></span><span id="tarjeta1_item6"></span></p>
+    </div>
+
+    <div class="tarjeta">
+      <h3 id="tarjeta2_titulo"></h3>
+      <p class="centrado"><span class="icono-servicio icono-fuego"></span><span id="tarjeta2_item1"></span></p>
+      <p class="centrado"><span></span><span id="tarjeta2_item2"></span></p>
+      <p class="centrado"><span></span><span id="tarjeta2_item3"></span></p>
+      <p class="centrado"><span></span><span id="tarjeta2_item4"></span></p>
+      <p class="centrado"><span class="icono-servicio icono-zona"></span><span id="tarjeta2_item5"></span></p>
+    </div>
+
+    <div class="tarjeta">
+      <h3 id="tarjeta3_titulo"></h3>
+      <p class="centrado"><span class="icono-servicio icono-tienda"></span><span id="tarjeta3_item1"></span></p>
+      <p class="centrado"><span class="icono-servicio icono-ventas"></span><span id="tarjeta3_item2"></span></p>
+      <p class="centrado"><span></span><span id="tarjeta3_item3"></span></p>
+    </div>
+  </section>
+
+  <!-- Iframe oculto para evitar navegación aun si falla JS -->
+  <iframe name="hidden_iframe" style="display:none;width:0;height:0;border:0;"></iframe>
+
+   <!-- Sección “Quiero Empezar” con formulario -->
+   <section class="empezar-seccion">
+    <div class="empezar-contenedor">
+      <div class="empezar-texto">
+        <!-- Título de la sección "Quiero Empezar" gestionado desde el Excel -->
+        <h2 class="titulo-servicio" id="empezar_titulo"></h2>
+        <!-- Formulario para contacto de empresas -->
+        <form id="empresaForm" class="formulario-seccion">
+          <input type="text" name="nombre" placeholder="Nombre" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="tel" name="telefono" placeholder="Teléfono" required>
+          <textarea name="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+          <input type="hidden" name="status" value="Nuevo">
+          <button type="submit">Enviar</button>
+          <div class="loader" id="loaderEmpresa" style="display: none;"></div>
+        </form>
+      </div>
+      <div class="empezar-imagen">
+        <!-- Imagen estática de la sección "Quiero Empezar" -->
+        <img src="33.png" alt="Repartidor listo para despacho">
+      </div>
+    </div>
+  </section>
+  
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="clienteServicio.js"></script>
+  
+  
+  
+
+</body>
+</html>

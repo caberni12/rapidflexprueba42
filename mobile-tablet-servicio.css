@@ -1,0 +1,220 @@
+/* =====================================================
+   SOLO MÓVIL/TABLET (<=1024px) - Página "servicio"
+   - Oculta panel superior
+   - Mantiene visibles RRSS y WhatsApp
+   - Deja visibles SOLO "Quiero despachar" y "Quiero ser repartidor"
+   - Compacta layout, imágenes centradas, texto justificado
+   ===================================================== */
+   @media (max-width: 1024px){
+
+    /* 1) Oculta panel superior */
+    html[data-route="servicio"] header,
+    html[data-route="servicio"] nav,
+    html[data-route="servicio"] .topbar,
+    html[data-route="servicio"] .panel-superior,
+    html[data-route="servicio"] .barra-superior,
+    html[data-route="servicio"] .navbar{
+      display: none !important;
+    }
+  
+    /* 2) Compactar secciones y priorizar Servicios */
+    html[data-route="servicio"] .seccion,
+    html[data-route="servicio"] .servicios,
+    html[data-route="servicio"] .empezar{
+      padding: 12px !important;
+      gap: 12px !important;
+    }
+    html[data-route="servicio"] .servicios{
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      margin-top: 0 !important;
+    }
+    html[data-route="servicio"] .tarjeta{
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 14px !important;
+    }
+  
+    /* 3) Texto justificado y párrafos apilados */
+    html[data-route="servicio"] p,
+    html[data-route="servicio"] li{
+      display: block !important;
+      width: 100% !important;
+      margin: 8px 0 !important;
+      line-height: 1.45 !important;
+      text-align: justify !important;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+    html[data-route="servicio"] h1,
+    html[data-route="servicio"] h2,
+    html[data-route="servicio"] h3,
+    html[data-route="servicio"] h4{
+      margin: 8px 0 6px !important;
+      line-height: 1.2 !important;
+    }
+  
+    /* 4) Imágenes centradas y fluidas */
+    html[data-route="servicio"] img,
+    html[data-route="servicio"] iframe{
+      display: block !important;
+      margin: 0 auto !important;
+      max-width: 100% !important;
+      height: auto !important;
+      border-radius: 8px;
+    }
+  
+    /* 5) Oculta todos los CTAs por defecto */
+    html[data-route="servicio"] a[class*="btn"],
+    html[data-route="servicio"] button[class*="btn"],
+    html[data-route="servicio"] .btn,
+    html[data-route="servicio"] .boton,
+    html[data-route="servicio"] .cta,
+    html[data-route="servicio"] .cta-btn{
+      display: none !important;
+    }
+  
+    /* 6) Mantiene visibles SOLO estos dos CTAs principales */
+    html[data-route="servicio"] .btn-empezar,     /* Quiero despachar */
+    html[data-route="servicio"] .btn-empezarr2,   /* Quiero ser repartidor */
+    html[data-route="servicio"] #btnDespachar,
+    html[data-route="servicio"] #btnRepartidor,
+    html[data-route="servicio"] .btn-despachar,
+    html[data-route="servicio"] .btn-repartidor{
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 10px 16px;
+      margin: 6px 4px;
+    }
+  
+    /* 7) RRSS / WhatsApp SIEMPRE visibles (por si los oculta alguna regla global) */
+    html[data-route="servicio"] .redes,
+    html[data-route="servicio"] .redes-sociales,
+    html[data-route="servicio"] .social,
+    html[data-route="servicio"] .sociales,
+    html[data-route="servicio"] .social-links,
+    html[data-route="servicio"] .social-icons,
+    html[data-route="servicio"] .footer-social,
+    html[data-route="servicio"] .rrss,
+    html[data-route="servicio"] .whatsapp,
+    html[data-route="servicio"] .whatsapp-float,
+    html[data-route="servicio"] .floating-whatsapp,
+    html[data-route="servicio"] .btn-whatsapp,
+    html[data-route="servicio"] .btn-wsp,
+    html[data-route="servicio"] .wsp,
+    html[data-route="servicio"] .wsp-float{
+      display: block !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      opacity: 1 !important;
+    }
+  
+    html[data-route="servicio"] .redes a,
+    html[data-route="servicio"] .social a,
+    html[data-route="servicio"] .rrss a,
+    html[data-route="servicio"] a[class*="whatsapp"],
+    html[data-route="servicio"] a[class*="wsp"],
+    html[data-route="servicio"] [id*="whatsapp"],
+    html[data-route="servicio"] [id*="wsp"],
+    html[data-route="servicio"] a[href*="wa.me"],
+    html[data-route="servicio"] a[href*="api.whatsapp.com"]{
+      display: inline-block !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      opacity: 1 !important;
+    }
+  
+    /* 8) Si tus RRSS usan clases .btn-*, re-muéstralas dentro de contenedores de RRSS */
+    html[data-route="servicio"] .redes [class*="btn"],
+    html[data-route="servicio"] .social [class*="btn"],
+    html[data-route="servicio"] .rrss [class*="btn"]{
+      display: inline-flex !important;
+    }
+  }
+  
+  
+  
+  /* ============ RRSS HORIZONTALES EN MOVIL/TABLET (servicio) ============ */
+  @media (max-width: 1024px){
+    /* Contenedores de redes en fila, centrados */
+    html[data-route="servicio"] .redes,
+    html[data-route="servicio"] .redes-sociales,
+    html[data-route="servicio"] .social,
+    html[data-route="servicio"] .sociales,
+    html[data-route="servicio"] .social-links,
+    html[data-route="servicio"] .social-icons,
+    html[data-route="servicio"] .footer-social,
+    html[data-route="servicio"] .rrss{
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;           /* una sola fila */
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 12px !important;
+      margin: 8px auto !important;
+      padding: 0 8px !important;
+      overflow-x: auto;                        /* scroll si hay muchas */
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+  
+    /* Si usan <ul> */
+    html[data-route="servicio"] .redes ul,
+    html[data-route="servicio"] .redes-sociales ul,
+    html[data-route="servicio"] .social ul,
+    html[data-route="servicio"] .sociales ul,
+    html[data-route="servicio"] .social-links ul,
+    html[data-route="servicio"] .social-icons ul,
+    html[data-route="servicio"] .footer-social ul,
+    html[data-route="servicio"] .rrss ul{
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      gap: 12px !important;
+    }
+    html[data-route="servicio"] .redes li,
+    html[data-route="servicio"] .redes-sociales li,
+    html[data-route="servicio"] .social li,
+    html[data-route="servicio"] .sociales li,
+    html[data-route="servicio"] .social-links li,
+    html[data-route="servicio"] .social-icons li,
+    html[data-route="servicio"] .footer-social li,
+    html[data-route="servicio"] .rrss li{
+      margin: 0 !important;
+    }
+  
+    /* Enlaces/íconos: tamaño consistente */
+    html[data-route="servicio"] .redes a,
+    html[data-route="servicio"] .redes-sociales a,
+    html[data-route="servicio"] .social a,
+    html[data-route="servicio"] .sociales a,
+    html[data-route="servicio"] .social-links a,
+    html[data-route="servicio"] .social-icons a,
+    html[data-route="servicio"] .footer-social a,
+    html[data-route="servicio"] .rrss a{
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 44px; height: 44px;
+      min-width: 44px;
+      border-radius: 9999px;
+      text-decoration: none;
+    }
+    html[data-route="servicio"] .redes img,
+    html[data-route="servicio"] .redes-sociales img,
+    html[data-route="servicio"] .social img,
+    html[data-route="servicio"] .sociales img,
+    html[data-route="servicio"] .social-links img,
+    html[data-route="servicio"] .social-icons img,
+    html[data-route="servicio"] .footer-social img,
+    html[data-route="servicio"] .rrss img{
+      display: block !important;
+      max-width: 28px !important;
+      height: auto !important;
+      margin: auto !important;
+    }
+  }  

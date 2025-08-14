@@ -1,0 +1,133 @@
+/* ===========================
+   RESPONSIVE GLOBAL
+   - Pegar al final de estilos.css
+   - No toca el #topbar
+   =========================== */
+
+/* ########## MÓVIL (<=600px) ########## */
+@media (max-width: 600px){
+
+  /* Variables del nav (si las usas) y empuje del contenido */
+  :root{ --topbar-height: 56px; --topbar-pad-y: 8px; }
+  #app{ padding-top: var(--topbar-height); }
+
+  /* Hero / Carrusel */
+  #app header{ height: 360px !important; margin-top: 0 !important; padding-top: 0 !important; background-position: center !important; }
+  #app .hero-text{ top: 16px !important; left: 16px !important; right: 16px !important; }
+  #app .hero-arrow{ position: absolute; top: auto; bottom: 10px; transform: none; }
+  #app .hero-arrow-left{ left: 10px; }
+  #app .hero-arrow-right{ right: 10px; }
+
+  /* Imágenes y iframes siempre fluidos y centrados */
+  #app img, #app iframe{ max-width: 100% !important; height: auto !important; display: block; margin: 0 auto; }
+
+  /* Grids -> una columna */
+  #app .servicios{ display: grid; grid-template-columns: 1fr !important; gap: 16px !important; padding: 16px !important; }
+  #app .servicios .servicio,
+  #app .servicios .servicio1,
+  #app .servicios .servicio3{ max-width: 100% !important; height: auto !important; margin: 0 auto !important; padding: 16px !important; }
+
+  /* Reset márgenes/posiciones raras en tarjetas */
+  #app .servicios .servicio h2,
+  #app .servicios .servicio1 h2,
+  #app .servicios .servicio3 h2{ margin: 8px 0 6px !important; text-align: center !important; }
+  #app .servicios .servicio p,
+  #app .servicios .servicio1 p,
+  #app .servicios .servicio3 p{ margin: 6px 0 0 !important; text-align: center !important; }
+  #app .servicios .servicio img,
+  #app .servicios .servicio1 img,
+  #app .servicios .servicio3 img{ margin: 0 auto 8px !important; }
+
+  /* Bloques con transform / offsets -> limpiar en móvil */
+  #app .imagen-telefono img,
+  #app .imagen-ubicacion img,
+  #app .imagen-comunas img,
+  #app .imagen-cajas img,
+  #app .contenido-seguridad,
+  #app .contenidos-comunas{ transform: none !important; margin: 0 auto !important; }
+
+  /* Sección teléfono: apilar y centrar */
+  #app .seccion-telefono{ display: flex; flex-direction: column; gap: 16px; padding: 24px 16px !important; align-items: center; }
+  #app .contenido-telefono{ max-width: 100% !important; transform: none !important; }
+  #app .item-con-icono{ gap: 10px; align-items: flex-start; }
+
+  /* Sección comunas: apilar y centrar */
+  #app .secciones-comunas{ display: flex; flex-direction: column; gap: 16px; padding: 24px 16px !important; }
+  #app .contenidos-comunas{ transform: none !important; margin: 0 !important; }
+  #app .imagen-comunas img{ width: 100% !important; }
+
+  /* Marketplaces / franjas */
+  #app .seccion-marketplaces,
+  #app .seccion-marketplaces2,
+  #app .seccion-marketplaces3,
+  #app .seccion-marketplaces4{ transform: none !important; padding: 24px 16px !important; margin: 0 !important; }
+
+  /* Contacto (mapa a una columna) */
+  #app .seccion-contacto{ display: grid; grid-template-columns: 1fr !important; gap: 16px !important; padding: 16px !important; }
+  #app .mapa-wrap{ aspect-ratio: auto; }
+  #app .mapa{ width: 100% !important; height: 280px !important; }
+
+  /* NOSOTROS: apilar texto/imagen */
+  #app .contenedor-nosotros{ display: flex; flex-direction: column; gap: 16px; padding: 16px; }
+  #app .imagen-nosotros img{ max-width: 420px; }
+
+  /* SERVICIO: tarjetas a una columna + “Empezar” apilado */
+  #app .titulo-servicio{ text-align: center; padding: 0 12px; }
+  #app .servicios .tarjeta{ width: 100% !important; max-width: 100% !important; margin: 0 auto 14px !important; }
+  #app .empezar-contenedor{ display: flex; flex-direction: column; gap: 16px; padding: 16px; }
+  #app .empezar-imagen img{ max-width: 420px; }
+
+  /* Botón flotante WhatsApp más chico */
+  .whatsapp-float{ width: 72px !important; height: 72px !important; bottom: 14px !important; right: 14px !important; }
+}
+
+/* ########## TABLET (601px–1024px) ########## */
+@media (min-width: 601px) and (max-width: 1024px){
+
+  :root{ --topbar-height: 60px; --topbar-pad-y: 10px; }
+  #app{ padding-top: var(--topbar-height); }
+
+  /* Hero / Carrusel */
+  #app header{ height: 420px !important; margin-top: 0 !important; padding-top: 0 !important; background-position: center !important; }
+  #app .hero-text{ top: 18px !important; left: 24px !important; right: 24px !important; }
+  #app .hero-arrow{ position: absolute; top: auto; bottom: 14px; }
+  #app .hero-arrow-left{ left: 14px; }
+  #app .hero-arrow-right{ right: 14px; }
+
+  /* Imágenes/iframes fluidos */
+  #app img, #app iframe{ max-width: 100% !important; height: auto !important; display: block; margin: 0 auto; }
+
+  /* Grids -> dos columnas cómodas */
+  #app .servicios{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 20px !important; padding: 20px !important; }
+  #app .servicios .servicio,
+  #app .servicios .servicio1,
+  #app .servicios .servicio3{ max-width: 100% !important; height: auto !important; margin: 0 auto !important; padding: 16px !important; }
+  #app .servicios .servicio img,
+  #app .servicios .servicio1 img,
+  #app .servicios .servicio3 img{ margin: 0 auto 10px !important; }
+
+  /* Limpiar transforms en tablet también */
+  #app .imagen-telefono img,
+  #app .imagen-ubicacion img,
+  #app .imagen-comunas img,
+  #app .imagen-cajas img,
+  #app .contenido-seguridad,
+  #app .contenidos-comunas{ transform: none !important; margin: 0 auto !important; }
+
+  /* Secciones apiladas pero con más aire */
+  #app .seccion-telefono,
+  #app .secciones-comunas{ display: flex; flex-direction: column; gap: 20px; padding: 24px 20px !important; }
+
+  /* Contacto: 1 columna o 2 según quepa (aquí forzamos 1 para evitar montajes) */
+  #app .seccion-contacto{ display: grid; grid-template-columns: 1fr !important; gap: 20px !important; padding: 20px !important; }
+  #app .mapa{ width: 100% !important; height: 340px !important; }
+
+  /* NOSOTROS */
+  #app .contenedor-nosotros{ display: flex; flex-direction: column; gap: 20px; padding: 20px; }
+  #app .imagen-nosotros img{ max-width: 560px; }
+
+  /* SERVICIO */
+  #app .servicios .tarjeta{ width: 100% !important; max-width: 100% !important; margin: 0 auto 16px !important; }
+  #app .empezar-contenedor{ display: flex; flex-direction: column; gap: 20px; padding: 20px; }
+  #app .empezar-imagen img{ max-width: 560px; }
+}
