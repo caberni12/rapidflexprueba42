@@ -1216,8 +1216,8 @@ img{
 
   /* WhatsApp más grande y 10px desde el borde izquierdo (seguro en iOS) */
   .whatsapp-float{
-    width: 84px;                   /* más grande en móvil */
-    height: 84px;
+    width: 120px;                   /* más grande en móvil */
+    height: 120px;
     left: calc(10px + env(safe-area-inset-left, 0px));
     right: auto;
     bottom: calc(10px + env(safe-area-inset-bottom, 0px));
