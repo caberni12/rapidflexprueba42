@@ -1200,3 +1200,30 @@ img{
   max-width: 100%;
   height: auto;
 }
+/* === Mobile (botones arriba a la izquierda + WhatsApp más grande a la izquierda) === */
+@media (max-width: 600px) {
+  /* Botones del topbar a la izquierda */
+  #topbar .nav-links{
+    justify-content: flex-start;   /* alinea a la izquierda */
+    width: 100%;
+    gap: 8px;
+    overflow-x: auto;              /* si no caben, permite deslizar horizontal */
+    -webkit-overflow-scrolling: touch;
+  }
+  #topbar .nav-links a{
+    margin-left: 0 !important;     /* quita desplazamientos a la derecha */
+  }
+
+  /* WhatsApp más grande y 10px desde el borde izquierdo (seguro en iOS) */
+  .whatsapp-float{
+    width: 84px;                   /* más grande en móvil */
+    height: 84px;
+    left: calc(10px + env(safe-area-inset-left, 0px));
+    right: auto;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  }
+  .whatsapp-float img{
+    width: 100%;
+    height: auto;
+  }
+}
